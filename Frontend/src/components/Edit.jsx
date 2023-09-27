@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { LoaderContext } from "../context/LoaderContext";
 import axios from "axios";
+
 const Edit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { setLoading } = useContext(LoaderContext);
+
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -11,28 +15,28 @@ const Edit = () => {
   });
   useEffect(() => {
     const getAllData = async () => {
+      setLoading(true);
       const res = await axios.get(
         `http://localhost:9000/api/v1/users/single/${id}`
       );
       setInput(res.data);
     };
     getAllData();
+    setLoading(false);
   }, [id]);
 
   const handleEditData = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await axios.put(`http://localhost:9000/api/v1/users/${id}`, input);
     navigate("/");
+    setLoading(false);
   };
   return (
     <>
       <div className="container">
         <div className="row">
-          <div className="col-md-12 ">
-            <div style={{ backgroundColor: "blue" }}>
-              <h1 className="text-white text-center mt-2">Update</h1>
-            </div>
-          </div>
+          <div className="col-md-12 "></div>
           <div className="col-md-12">
             <form onSubmit={handleEditData}>
               <div class="mb-3">
