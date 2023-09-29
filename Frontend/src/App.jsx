@@ -6,7 +6,7 @@ import Loader from "./reusableComponents/Loader/Loader";
 function App() {
   return (
     <>
-      <div className="bg-[#e5e7eb]">
+      <div className="bg-[#e5e7eb] h-screen bg-gradient-to-r from-gray-300">
         <Loader />
         <Header />
         <BrowserRouter>

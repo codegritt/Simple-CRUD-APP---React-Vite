@@ -34,13 +34,19 @@ const Edit = () => {
   };
   return (
     <>
-      <div className="container">
+      <div className="ml-28 mt-24 container show-box">
         <div className="row">
           <div className="col-md-12 "></div>
-          <div className="col-md-12">
+          <div className="border rounded-xl bg-white border-gray-300 w-4/12 p-5 pb-5 col-md-12">
+            <div className="border-b border-solid border-slate-200 mb-5">
+              <h3 className="text-2xl font-semibold pb-4">Edit User Details</h3>
+            </div>
             <form onSubmit={handleEditData}>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+              <div className="mb-3">
+                <label
+                  for="exampleInputEmail1"
+                  className="form-label font-medium"
+                >
                   Name
                 </label>
                 <input
@@ -50,13 +56,16 @@ const Edit = () => {
                   onChange={(e) =>
                     setInput({ ...input, [e.target.name]: e.target.value })
                   }
-                  class="form-control"
+                  className="form-control p-1 border-2 rounded ml-3 w-10/12"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
+              <div className="mb-3">
+                <label
+                  for="exampleInputPassword1"
+                  className="form-label font-medium"
+                >
                   Email
                 </label>
                 <input
@@ -66,12 +75,15 @@ const Edit = () => {
                     setInput({ ...input, [e.target.name]: e.target.value })
                   }
                   type="email"
-                  class="form-control"
+                  className="form-control p-1 border-2 rounded ml-4 w-10/12"
                   id="exampleInputPassword1"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
+              <div className="mb-3">
+                <label
+                  for="exampleInputPassword1"
+                  className="form-label font-medium"
+                >
                   Age
                 </label>
                 <input
@@ -81,20 +93,27 @@ const Edit = () => {
                   }
                   name="age"
                   type="number"
-                  class="form-control"
+                  className="form-control p-1 border-2 rounded ml-7 w-10/12"
                   id="exampleInputPassword1"
                 />
               </div>
-
-              <button type="submit" class="btn btn-primary">
-                update
-              </button>
+              <div className="mt-5">
+                <button
+                  type="submit"
+                  className="text-white ml-64 bg-gray-800 hover:bg-gray-300 font-medium rounded text-sm px-4 lg:px-5 py-1.5 lg:py-1.5 dark:hover:bg-gray-700 transition duration-150 ease-out hover:ease-in"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => navigate("/")}
+                  className="text-gray-700 mr-5 border float-right bg-white hover:bg-gray-600 hover:text-white font-medium rounded text-sm px-4 lg:px-5 py-1.5 lg:py-1.5 dark:hover:bg-gray-700 transition duration-150 ease-out hover:ease-in"
+                >
+                  Back
+                </button>
+              </div>
             </form>
           </div>
         </div>
-        <button onClick={() => navigate("/")} className="btn btn-info mt-2">
-          Go To Home
-        </button>
       </div>
     </>
   );
